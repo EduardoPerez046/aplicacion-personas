@@ -74,8 +74,8 @@ public class PersonaModel {
     }
 
     public void calcularEdad() {
-        LocalDate fechaNacimiento = LocalDate.of(añoNacimiento, 1, 1); // Suponiendo que solo tienes el año de nacimiento
-        LocalDate fechaActual = LocalDate.now();
+        LocalDate fechaNacimiento = LocalDate.of(añoNacimiento, 1, 1); // Suponiendo que solo se tiene el año de nacimiento 
+        LocalDate fechaActual = LocalDate.now(); // Obteniendo la fecha actual
         Period periodo = Period.between(fechaNacimiento, fechaActual);
         this.edad = periodo.getYears();
     }

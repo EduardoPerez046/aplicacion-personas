@@ -35,6 +35,13 @@ public class HijoModel {
     public HijoModel() {
     }
 
+    /**
+     * Constructor .
+     * @param nombre El nombre del hijo aplicando la misma validacion que en persona.
+     * @param edad La edad del hijo, sin validar.
+     * @param idPadre El id de la persona que es su padre.
+     */
+
     public HijoModel(String nombre, int edad, Long idPadre) {
         this.nombre = nombre;
         this.edad = edad;    

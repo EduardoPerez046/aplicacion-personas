@@ -31,6 +31,7 @@ public class HijoServiceImplement implements HijoService {
     @Autowired
     private PersonaRepository personaRepository;
      
+    // Crear un nuevo hijo
     @Override
     public void createHijo(HijoModel hijo) {
         Optional<HijoModel> existingHijo = hijoRepository.findByNombre(hijo.getNombre());
@@ -41,11 +42,13 @@ public class HijoServiceImplement implements HijoService {
         }
     }
 
+    // Obtener todos los hijos
     @Override
     public List<HijoModel> getHijos() {
         return hijoRepository.findAll();
     }
 
+    // Obtener hijo por ID
     @Override
     public HijoModel getHijoById(Long id) {
         Optional<HijoModel> hijoOptional = hijoRepository.findById(id);
@@ -57,7 +60,7 @@ public class HijoServiceImplement implements HijoService {
         }
     }
     
-
+    // Actualizar hijo
     @Override
     public void updateHijo(HijoModel hijoModel, Long id) {
         Optional<HijoModel> hijoOptional = hijoRepository.findById(id);
@@ -77,6 +80,7 @@ public class HijoServiceImplement implements HijoService {
         }
     }
 
+    // Eliminar hijo
     @Override
     public void deleteHijo(Long id) {
         try {
@@ -87,6 +91,7 @@ public class HijoServiceImplement implements HijoService {
         }
     }
 
+    // Filtrar hijos por persona
     @Override
     public List<HijoModel> getHijosByPersonaId(Long id) {
         return hijoRepository.findByPersonaIdNativeQuery(id);

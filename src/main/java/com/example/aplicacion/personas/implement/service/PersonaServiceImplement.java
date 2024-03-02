@@ -27,7 +27,7 @@ public class PersonaServiceImplement implements PersonaService {
     private PersonaRepository personaRepository;
 
    
-
+    // Crear una nueva persona
     @Override
     public void createPersona(PersonaModel persona) {
         Optional<PersonaModel> existingPersona = personaRepository.findByNombre(persona.getNombre());
@@ -39,11 +39,13 @@ public class PersonaServiceImplement implements PersonaService {
         }
     }
 
+    // Obtener todas las personas
     @Override
     public List<PersonaModel> getPersonas() {
         return personaRepository.findAll();
     }
 
+    // Obtener persona por ID
     @Override
     public PersonaModel getPersonaById(Long id) {
         Optional<PersonaModel> personaOptional = personaRepository.findById(id);
@@ -55,10 +57,11 @@ public class PersonaServiceImplement implements PersonaService {
         }
     }
 
+    // Actualizar una persona
     @Override
     public void updatePersona(PersonaModel personaModel, Long id) {
         Optional<PersonaModel> nombreExistente = personaRepository.findByNombre(personaModel.getNombre());
-        if (nombreExistente.isPresent()) {
+        if (nombreExistente.isPresent()) { // Comprueba si existe una persona con el nombre
             throw new PersonaNotFoundException("El nombre '" + personaModel.getNombre() + "' ya está en uso");
         }
         Optional<PersonaModel> personaOptional = personaRepository.findById(id);
@@ -74,7 +77,7 @@ public class PersonaServiceImplement implements PersonaService {
             try {
                 personaRepository.save(existingPersona); // Guarda la persona actualizada
             } catch (Exception e) {
-                // Maneja la excepción
+                // Maneja la excepción 
                 throw new RuntimeException("Error al actualizar la persona: " + e.getMessage());
             }
         } else {

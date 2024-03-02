@@ -41,7 +41,7 @@ public class GlobalValidationExceptionHandler extends ResponseEntityExceptionHan
     
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<String> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
-        // Aquí puedes personalizar la respuesta de error
+        // Aquí se puede personalizar la respuesta de error
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error de integridad de datos: " + ex.getMessage());
     }
     

@@ -14,7 +14,6 @@ import javax.persistence.PersistenceContext;
  */
 public interface HijoService {
     public void createHijo(HijoModel hijo);
-    
     public List getHijos();
     public HijoModel getHijoById(Long id);
     public void updateHijo(HijoModel hijoModel, Long id);
